@@ -6,7 +6,7 @@ fosforescente de radio. Sin dependencias, sin build.
 
 ## Demo
 
-👉 https://TU-USUARIO.github.io/curie-css/
+👉 https://ahlaiflores.github.io/curie-css/
 
 ## Uso
 
