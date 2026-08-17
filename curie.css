@@ -1,0 +1,295 @@
+/* ═══════════════════════════════════════════════════════════════
+   CURIE.CSS — Mini-marco de estilos victoriano · c. 1898
+   Estética: cuaderno de laboratorio, tinta ferrogálica, papel
+   envejecido y un acento fosforescente de radio.
+
+   USO:
+     <link rel="stylesheet" href="curie.css">
+     <script src="curie.js" defer></script>
+     <body class="cu-pagina"> ... </body>
+
+   Todo va con prefijo .cu- para no chocar con otros estilos.
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=Special+Elite&display=swap');
+
+/* ── 1. Variables ──────────────────────────────────────────── */
+:root {
+  --cu-papel:        #EAE0C8;   /* papel envejecido            */
+  --cu-papel-oscuro: #DFD1B2;   /* paneles y fichas            */
+  --cu-papel-claro:  #F2EAD6;   /* campos de formulario        */
+  --cu-tinta:        #2A2016;   /* tinta ferrogálica           */
+  --cu-sepia:        #6F5F45;   /* anotaciones secundarias     */
+  --cu-granate:      #6D2A24;   /* acento victoriano (oxblood) */
+  --cu-dorado:       #A8863D;   /* filos dorados               */
+  --cu-radio:        #6E8C33;   /* verde radio                 */
+  --cu-radio-luz:    #D6F27A;   /* fosforescencia              */
+
+  --cu-serif:   'EB Garamond', Georgia, serif;
+  --cu-titular: 'Old Standard TT', 'Times New Roman', serif;
+  --cu-maquina: 'Special Elite', 'Courier New', monospace;
+
+  --cu-borde:  1px solid var(--cu-tinta);
+  --cu-sombra: 4px 4px 0 rgba(42, 32, 22, .18);
+}
+
+/* ── 2. Base (bajo .cu-pagina) ─────────────────────────────── */
+.cu-pagina {
+  margin: 0;
+  background: var(--cu-papel);
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(255,250,235,.55), transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(111, 95, 69,.14), transparent 50%);
+  color: var(--cu-tinta);
+  font-family: var(--cu-serif);
+  font-size: 1.125rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.cu-pagina ::selection { background: var(--cu-radio-luz); color: var(--cu-tinta); }
+
+.cu-pagina h1, .cu-pagina h2, .cu-pagina h3, .cu-pagina h4 {
+  font-family: var(--cu-titular);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 .5em;
+  letter-spacing: .01em;
+}
+.cu-pagina h1 { font-size: clamp(2.4rem, 6vw, 4.2rem); }
+.cu-pagina h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); font-variant: small-caps; letter-spacing: .06em; }
+.cu-pagina h3 { font-size: 1.3rem; }
+.cu-pagina a { color: var(--cu-granate); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.cu-pagina a:hover { color: var(--cu-tinta); }
+.cu-pagina :focus-visible { outline: 2px dotted var(--cu-granate); outline-offset: 3px; }
+
+.cu-contenedor { max-width: 960px; margin-inline: auto; padding: 0 1.25rem; }
+
+/* Retícula sencilla */
+.cu-fila { display: flex; flex-wrap: wrap; gap: 1.5rem; }
+.cu-col  { flex: 1 1 240px; min-width: 0; }
+
+/* ── 3. Tipografía ornamental ──────────────────────────────── */
+.cu-pretitulo {                      /* «ceja» a máquina de escribir */
+  font-family: var(--cu-maquina);
+  font-size: .78rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--cu-sepia);
+}
+.cu-subtitulo { font-style: italic; color: var(--cu-sepia); font-size: 1.2rem; }
+
+.cu-capitular::first-letter {        /* letra capitular */
+  font-family: var(--cu-titular);
+  float: left;
+  font-size: 3.4em;
+  line-height: .82;
+  padding: .05em .12em 0 0;
+  color: var(--cu-granate);
+}
+
+.cu-ornamento {                      /* separador ❦ */
+  display: flex; align-items: center; gap: 1rem;
+  border: 0; margin: 2.5rem 0;
+  color: var(--cu-sepia);
+}
+.cu-ornamento::before, .cu-ornamento::after {
+  content: ""; flex: 1; border-top: 1px solid var(--cu-sepia); opacity: .6;
+}
+.cu-ornamento::marker { content: none; }
+.cu-ornamento > span::before { content: "❦"; font-size: 1.2rem; }
+
+.cu-cita {
+  margin: 1.5rem 0; padding: .25rem 1.25rem;
+  border-left: 3px double var(--cu-granate);
+  font-style: italic; font-size: 1.15em; color: var(--cu-sepia);
+}
+.cu-cita cite { display: block; font-style: normal; font-family: var(--cu-maquina); font-size: .75rem; letter-spacing: .15em; margin-top: .5rem; text-transform: uppercase; }
+
+/* ── 4. Botones ────────────────────────────────────────────── */
+.cu-btn {
+  display: inline-block;
+  font-family: var(--cu-maquina);
+  font-size: .85rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--cu-papel-claro);
+  background: var(--cu-tinta);
+  border: var(--cu-borde);
+  box-shadow: var(--cu-sombra);
+  padding: .7em 1.4em;
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+.cu-btn:hover  { transform: translate(-1px,-1px); box-shadow: 5px 5px 0 rgba(42,32,22,.22); }
+.cu-btn:active { transform: translate(2px,2px);  box-shadow: 1px 1px 0 rgba(42,32,22,.25); }
+.cu-btn--granate  { background: var(--cu-granate); }
+.cu-btn--radio    { background: var(--cu-radio); color: #fff; }
+.cu-btn--fantasma { background: transparent; color: var(--cu-tinta); }
+
+/* ── 5. Fichas (cards) ─────────────────────────────────────── */
+.cu-ficha {
+  background: var(--cu-papel-oscuro);
+  border: var(--cu-borde);
+  outline: 1px solid var(--cu-tinta);
+  outline-offset: 3px;               /* doble filete victoriano */
+  box-shadow: var(--cu-sombra);
+  padding: 1.5rem 1.5rem 1.25rem;
+  position: relative;
+  margin: 4px;                       /* aire para el outline    */
+}
+.cu-ficha__num {                     /* nº de espécimen, esquina */
+  position: absolute; top: .6rem; right: .8rem;
+  font-family: var(--cu-maquina); font-size: .72rem;
+  letter-spacing: .15em; color: var(--cu-sepia);
+}
+.cu-ficha h3 { font-variant: small-caps; letter-spacing: .05em; }
+.cu-ficha__pie { margin-top: 1rem; padding-top: .75rem; border-top: 1px dashed var(--cu-sepia); font-size: .95rem; color: var(--cu-sepia); }
+
+/* ── 6. Tablas (libro de registro) ─────────────────────────── */
+.cu-tabla {
+  width: 100%; border-collapse: collapse;
+  border-top: 3px double var(--cu-tinta);
+  border-bottom: 3px double var(--cu-tinta);
+  font-size: 1rem;
+}
+.cu-tabla caption {
+  caption-side: top; text-align: left;
+  font-family: var(--cu-maquina); font-size: .78rem;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--cu-sepia); padding-bottom: .5rem;
+}
+.cu-tabla th {
+  font-family: var(--cu-titular); font-variant: small-caps;
+  letter-spacing: .05em; text-align: left;
+  border-bottom: 1px solid var(--cu-tinta);
+  padding: .5rem .75rem;
+}
+.cu-tabla td { padding: .5rem .75rem; border-bottom: 1px solid rgba(111,95,69,.35); }
+.cu-tabla tbody tr:hover { background: rgba(214,242,122,.25); }
+.cu-tabla .cu-num { font-family: var(--cu-maquina); font-size: .9rem; text-align: right; }
+
+/* ── 7. Formularios (renglones de cuaderno) ────────────────── */
+.cu-campo { margin-bottom: 1.4rem; }
+.cu-etiqueta {
+  display: block;
+  font-family: var(--cu-maquina); font-size: .75rem;
+  letter-spacing: .18em; text-transform: uppercase;
+  color: var(--cu-sepia); margin-bottom: .35rem;
+}
+.cu-entrada, .cu-area, .cu-selector {
+  width: 100%; box-sizing: border-box;
+  font-family: var(--cu-serif); font-size: 1.05rem;
+  color: var(--cu-tinta);
+  background: var(--cu-papel-claro);
+  border: 0; border-bottom: 1px solid var(--cu-tinta);
+  padding: .55em .6em;
+}
+.cu-area { border: var(--cu-borde); min-height: 6em; resize: vertical;
+  background-image: repeating-linear-gradient(transparent, transparent 1.55em, rgba(111,95,69,.25) 1.56em);
+  line-height: 1.6em;
+}
+.cu-selector { border: var(--cu-borde); }
+.cu-entrada:focus, .cu-area:focus, .cu-selector:focus { border-color: var(--cu-granate); }
+
+/* ── 8. Avisos y sellos ────────────────────────────────────── */
+.cu-aviso {
+  border: var(--cu-borde); border-left-width: 6px;
+  background: var(--cu-papel-claro);
+  padding: 1rem 1.25rem; margin: 1.25rem 0;
+}
+.cu-aviso--nota    { border-left-color: var(--cu-dorado); }
+.cu-aviso--peligro {
+  border-left-color: var(--cu-radio);
+  box-shadow: 0 0 0 1px var(--cu-radio), 0 0 18px rgba(214,242,122,.6);
+}
+.cu-aviso__titulo { font-family: var(--cu-maquina); font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; display: block; margin-bottom: .3rem; }
+
+.cu-sello {                          /* sello de tampón */
+  display: inline-block;
+  font-family: var(--cu-maquina); font-size: .72rem;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: var(--cu-granate);
+  border: 2px solid var(--cu-granate); border-radius: 3px;
+  padding: .2em .7em; transform: rotate(-2deg);
+  opacity: .85;
+}
+.cu-sello--radio { color: var(--cu-radio); border-color: var(--cu-radio); transform: rotate(1.5deg); }
+.cu-sello--sepia { color: var(--cu-sepia); border-color: var(--cu-sepia); }
+
+/* ── 9. Firma: fosforescencia de radio ─────────────────────── */
+.cu-fosforescente {
+  color: var(--cu-radio);
+  text-shadow: 0 0 6px rgba(214,242,122,.9), 0 0 18px rgba(214,242,122,.55);
+  animation: cu-latido 3.2s ease-in-out infinite;
+}
+@keyframes cu-latido {
+  0%, 100% { text-shadow: 0 0 5px rgba(214,242,122,.75), 0 0 14px rgba(214,242,122,.4); }
+  50%      { text-shadow: 0 0 9px rgba(214,242,122,1),  0 0 26px rgba(214,242,122,.75); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cu-fosforescente { animation: none; }
+  .cu-btn { transition: none; }
+}
+
+/* ── 10. Pestañas ──────────────────────────────────────────── */
+.cu-pestanas__barra { display: flex; gap: .25rem; border-bottom: var(--cu-borde); flex-wrap: wrap; }
+.cu-pestanas__btn {
+  font-family: var(--cu-maquina); font-size: .8rem;
+  letter-spacing: .12em; text-transform: uppercase;
+  background: transparent; color: var(--cu-sepia);
+  border: var(--cu-borde); border-bottom: 0;
+  padding: .55em 1.1em; cursor: pointer;
+  transform: translateY(1px);
+}
+.cu-pestanas__btn[aria-selected="true"] {
+  background: var(--cu-papel-oscuro); color: var(--cu-tinta); font-weight: 700;
+}
+.cu-pestanas__panel { border: var(--cu-borde); border-top: 0; background: var(--cu-papel-oscuro); padding: 1.25rem 1.5rem; }
+.cu-pestanas__panel[hidden] { display: none; }
+
+/* ── 11. Pliegues (acordeón con <details>) ─────────────────── */
+.cu-pliegue { border: var(--cu-borde); background: var(--cu-papel-oscuro); margin-bottom: .6rem; }
+.cu-pliegue summary {
+  cursor: pointer; list-style: none;
+  font-family: var(--cu-titular); font-variant: small-caps;
+  letter-spacing: .05em; font-size: 1.1rem;
+  padding: .8rem 1.25rem;
+}
+.cu-pliegue summary::before { content: "✦ "; color: var(--cu-dorado); }
+.cu-pliegue[open] summary { border-bottom: 1px dashed var(--cu-sepia); }
+.cu-pliegue > div { padding: 1rem 1.25rem; }
+
+/* ── 12. Modal y avisos flotantes ──────────────────────────── */
+.cu-modal { position: fixed; inset: 0; display: none; place-items: center; z-index: 60; }
+.cu-modal.cu-abierto { display: grid; }
+.cu-modal__fondo { position: absolute; inset: 0; background: rgba(42,32,22,.55); }
+.cu-modal__caja {
+  position: relative; background: var(--cu-papel);
+  border: var(--cu-borde); outline: 1px solid var(--cu-tinta); outline-offset: 4px;
+  box-shadow: 8px 8px 0 rgba(42,32,22,.3);
+  max-width: 420px; width: calc(100% - 3rem);
+  padding: 1.75rem;
+}
+.cu-modal__cerrar { position: absolute; top: .4rem; right: .6rem; background: none; border: 0; font-size: 1.4rem; cursor: pointer; color: var(--cu-sepia); }
+
+.cu-toast {
+  position: fixed; left: 50%; bottom: 1.5rem; transform: translateX(-50%);
+  background: var(--cu-tinta); color: var(--cu-papel-claro);
+  font-family: var(--cu-maquina); font-size: .82rem; letter-spacing: .1em;
+  border: 1px solid var(--cu-dorado);
+  padding: .7em 1.4em; z-index: 70;
+  box-shadow: var(--cu-sombra);
+}
+
+/* ── 13. Utilidades mínimas ────────────────────────────────── */
+.cu-centrado { text-align: center; }
+.cu-mt-1 { margin-top: 1rem; } .cu-mt-2 { margin-top: 2rem; } .cu-mt-3 { margin-top: 3rem; }
+.cu-mb-1 { margin-bottom: 1rem; } .cu-mb-2 { margin-bottom: 2rem; }
+.cu-seccion { padding: 3.5rem 0; }
+.cu-oculto { display: none !important; }
+
+@media (max-width: 720px) {
+  .cu-pagina { font-size: 1.05rem; }
+  .cu-fila { gap: 1rem; }
+}

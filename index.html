@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curie.css — mini-marco victoriano</title>
+<link rel="stylesheet" href="curie.css">
+<script src="curie.js" defer></script>
+</head>
+<body class="cu-pagina">
+
+  <!-- ═══ Portada ═══ -->
+  <header class="cu-seccion cu-centrado">
+    <div class="cu-contenedor">
+      <p class="cu-pretitulo">Cuaderno de laboratorio · París · 1898</p>
+      <h1>Curie.css</h1>
+      <p class="cu-subtitulo">Un mini-marco victoriano de CSS &amp; JS,<br>para vestir cualquier página con tinta, papel y un destello de <span class="cu-fosforescente">radio</span>.</p>
+      <div class="cu-mt-2">
+        <button class="cu-btn cu-btn--granate" data-cu-abrir="#modal-aviso">Abrir el aviso ☢</button>
+        <button class="cu-btn cu-btn--fantasma" onclick="CurieUI.avisar('❦ Anotado en el cuaderno.')">Probar un aviso flotante</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="cu-contenedor">
+    <hr class="cu-ornamento" aria-hidden="true"><span></span></hr>
+
+    <!-- ═══ Tipografía ═══ -->
+    <section class="cu-seccion" style="padding-top:0">
+      <p class="cu-pretitulo">Lámina I</p>
+      <h2>Tipografía</h2>
+      <p class="cu-capitular">Nada en la vida debe ser temido, solamente comprendido: con ese ánimo se compuso este marco. La cabecera usa <em>Old Standard TT</em>, la letra de las revistas científicas de 1900; el cuerpo va en <em>EB Garamond</em>; y las anotaciones, etiquetas y botones se escriben a máquina con <em>Special Elite</em>.</p>
+      <blockquote class="cu-cita">
+        En la ciencia debemos interesarnos por las cosas, no por las personas.
+        <cite>— M. Skłodowska-Curie</cite>
+      </blockquote>
+      <p>
+        <span class="cu-sello">Espécimen nº 88</span>
+        <span class="cu-sello cu-sello--radio">Activo</span>
+        <span class="cu-sello cu-sello--sepia">Archivado</span>
+      </p>
+    </section>
+
+    <!-- ═══ Fichas ═══ -->
+    <section class="cu-seccion" style="padding-top:0">
+      <p class="cu-pretitulo">Lámina II</p>
+      <h2>Fichas de espécimen</h2>
+      <div class="cu-fila cu-mt-1">
+        <div class="cu-col cu-ficha">
+          <span class="cu-ficha__num">Nº 84</span>
+          <h3>Polonio (Po)</h3>
+          <p>Aislado en julio de 1898 y bautizado en honor a la patria de la descubridora. Emisión intensa, vida breve.</p>
+          <div class="cu-ficha__pie">Fuente: pechblenda de Joachimsthal</div>
+        </div>
+        <div class="cu-col cu-ficha">
+          <span class="cu-ficha__num">Nº 88</span>
+          <h3><span class="cu-fosforescente">Radio (Ra)</span></h3>
+          <p>Anunciado en diciembre del mismo año. Brilla en la oscuridad del cobertizo; el acento verde de este marco es suyo.</p>
+          <div class="cu-ficha__pie">Actividad ≈ 3 000 000 × uranio</div>
+        </div>
+        <div class="cu-col cu-ficha">
+          <span class="cu-ficha__num">Mineral</span>
+          <h3>Pechblenda</h3>
+          <p>Toneladas de mineral procesadas a mano para obtener un decigramo de sal pura. La paciencia también es un instrumento.</p>
+          <div class="cu-ficha__pie">Residuo cedido por la corona austríaca</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ Tabla ═══ -->
+    <section class="cu-seccion" style="padding-top:0">
+      <p class="cu-pretitulo">Lámina III</p>
+      <h2>Libro de registro</h2>
+      <table class="cu-tabla cu-mt-1">
+        <caption>Mediciones de actividad · electrómetro de cuarzo</caption>
+        <thead>
+          <tr><th>Muestra</th><th>Fecha</th><th class="cu-num">Actividad (u. rel.)</th><th>Observación</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Uranio metálico</td><td>12 · IV</td><td class="cu-num">1.00</td><td>Referencia</td></tr>
+          <tr><td>Torio</td><td>19 · IV</td><td class="cu-num">1.10</td><td>Confirma a Schmidt</td></tr>
+          <tr><td>Pechblenda</td><td>24 · IV</td><td class="cu-num">4.60</td><td>¡Más activa que el uranio puro!</td></tr>
+          <tr><td>Sal de radio</td><td>26 · XII</td><td class="cu-num">≈ 10⁶</td><td class="cu-fosforescente">Luminiscencia visible</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ═══ Formulario ═══ -->
+    <section class="cu-seccion" style="padding-top:0">
+      <p class="cu-pretitulo">Lámina IV</p>
+      <h2>Registrar experimento</h2>
+      <div class="cu-fila cu-mt-1">
+        <div class="cu-col">
+          <div class="cu-campo">
+            <label class="cu-etiqueta" for="muestra">Nombre de la muestra</label>
+            <input class="cu-entrada" id="muestra" type="text" placeholder="p. ej. cloruro de bario">
+          </div>
+          <div class="cu-campo">
+            <label class="cu-etiqueta" for="tipo">Tipo de medición</label>
+            <select class="cu-selector" id="tipo">
+              <option>Ionización del aire</option>
+              <option>Fotografía por emanación</option>
+              <option>Pesada en balanza</option>
+            </select>
+          </div>
+          <button class="cu-btn" onclick="CurieUI.avisar('Registro guardado en el libro.')">Guardar registro</button>
+        </div>
+        <div class="cu-col">
+          <div class="cu-campo">
+            <label class="cu-etiqueta" for="notas">Observaciones</label>
+            <textarea class="cu-area" id="notas" placeholder="Escriba aquí como en un cuaderno rayado…"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="cu-aviso cu-aviso--nota cu-mt-2">
+        <span class="cu-aviso__titulo">Nota</span>
+        Los avisos usan un filete lateral: dorado para notas, verde radio para peligros.
+      </div>
+      <div class="cu-aviso cu-aviso--peligro">
+        <span class="cu-aviso__titulo">☢ Précaution · Radioactif</span>
+        Este cuaderno seguirá siendo radiactivo durante 1 500 años. Manipúlese con guantes de plomo.
+      </div>
+    </section>
+
+    <!-- ═══ Pestañas ═══ -->
+    <section class="cu-seccion" style="padding-top:0">
+      <p class="cu-pretitulo">Lámina V</p>
+      <h2>Pestañas</h2>
+      <div data-cu="pestanas" class="cu-mt-1">
+        <div class="cu-pestanas__barra" role="tablist">
+          <button class="cu-pestanas__btn">Método</button>
+          <button class="cu-pestanas__btn">Resultados</button>
+          <button class="cu-pestanas__btn">Notas</button>
+        </div>
+        <div class="cu-pestanas__panel">Se tritura el mineral, se disuelve en ácido y se precipita por fracciones; la actividad se concentra con el bario.</div>
+        <div class="cu-pestanas__panel">Tras miles de cristalizaciones, la sal obtenida emite luz propia y mantiene su temperatura por encima de la ambiente.</div>
+        <div class="cu-pestanas__panel">El cobertizo gotea cuando llueve; aun así, «fueron los años más felices de nuestra vida».</div>
+      </div>
+    </section>
+
+    <!-- ═══ Pliegues ═══ -->
+    <section class="cu-seccion" style="padding-top:0">
+      <p class="cu-pretitulo">Lámina VI</p>
+      <h2>Pliegues</h2>
+      <div data-cu-exclusivo class="cu-mt-1">
+        <details class="cu-pliegue" open>
+          <summary>¿Cómo lo uso en mi página?</summary>
+          <div>Enlaza <code>curie.css</code> y <code>curie.js</code>, añade la clase <code>cu-pagina</code> al <code>&lt;body&gt;</code> y usa las clases con prefijo <code>cu-</code>.</div>
+        </details>
+        <details class="cu-pliegue">
+          <summary>¿Puedo cambiar los colores?</summary>
+          <div>Sí: todo sale de variables CSS en <code>:root</code> (<code>--cu-papel</code>, <code>--cu-tinta</code>, <code>--cu-radio</code>…). Redefínelas y el marco entero cambia de época.</div>
+        </details>
+        <details class="cu-pliegue">
+          <summary>¿Choca con Bootstrap o con mi tema de Moodle?</summary>
+          <div>Todo va con prefijo <code>cu-</code> y la base solo aplica dentro de <code>.cu-pagina</code>, así que puede convivir con otros estilos o envolver solo una sección.</div>
+        </details>
+      </div>
+    </section>
+
+    <footer class="cu-seccion cu-centrado" style="padding-top:0">
+      <hr class="cu-ornamento" aria-hidden="true"><span></span></hr>
+      <p class="cu-pretitulo">Compuesto con Curie.css · MMXXVI</p>
+    </footer>
+  </div>
+
+  <!-- ═══ Modal ═══ -->
+  <div class="cu-modal" id="modal-aviso" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+    <div class="cu-modal__fondo"></div>
+    <div class="cu-modal__caja">
+      <button class="cu-modal__cerrar" aria-label="Cerrar">×</button>
+      <p class="cu-pretitulo">Aviso del laboratorio</p>
+      <h3 id="modal-titulo">Fosforescencia detectada</h3>
+      <p>La muestra <span class="cu-fosforescente">Ra-88</span> emite luz sin fuente aparente. Se recomienda registrar la observación antes de cerrar el cuaderno.</p>
+      <button class="cu-btn cu-btn--radio" onclick="CurieUI.avisar('Observación registrada.'); this.closest('.cu-modal').classList.remove('cu-abierto')">Registrar</button>
+    </div>
+  </div>
+
+</body>
+</html>
